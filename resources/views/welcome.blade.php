@@ -4,9 +4,12 @@
         <title>Laravel</title>
     </head>
     <body>
-        <div id="app">
+        <a class="" href="{{ route('genealogy') }}">
+            Genealogy Tree
+        </a>
+        {{-- <div id="app">
             <example-component />
-        </div>
+        </div> --}}
     </body>
     @vite(['resources/js/app.js'])
 </html>
