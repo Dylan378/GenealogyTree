@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="flex flex-col items-center p-6 bg-slate-800 min-h-screen relative">
+
     @if($parent->distributor_id)
         <div class="w-full flex justify-start mb-4 mt-12">
             <a href="{{ route('genealogy.show', ['parent_id' => $parent->distributor_id]) }}" 
@@ -15,10 +16,12 @@
     @endif
 
     <div class="relative mb-8 flex flex-col items-center group z-10">
+
         <div class="w-24 h-24 bg-gradient-to-br from-indigo-600 to-blue-500 text-white rounded-full flex items-center justify-center text-lg font-semibold relative shadow-lg hover:scale-105 transition-transform duration-300 parent-circle">
             <i class="fas fa-user"></i>
             <div class="absolute left-1/2 transform -translate-x-1/2 mt-24 hidden parent-tooltip bg-white shadow-xl p-4 rounded-lg text-xs text-gray-800 w-48 z-50">
                 <p class="z-10"><strong>{{ $parent->full_name }}</strong></p> 
+                <p>Username: {{ $parent->username }}</p>
                 <p>Status: {{ $parent->status }}</p>
                 <p>Product: {{ $parent->product_name }}</p>
                 <p>Category: {{ $parent->category_name }}</p>
@@ -35,6 +38,7 @@
                         <i class="fas fa-user"></i> 
                         <div class="absolute left-1/2 transform -translate-x-1/2 mt-20 hidden child-tooltip bg-white shadow-xl p-4 rounded-lg text-xs text-gray-800 w-48">
                             <p><strong>{{ $child->full_name }}</strong></p> 
+                            <p>Username: {{ $child->username }}</p>
                             <p>Status: {{ $child->status }}</p>
                             <p>Product: {{ $child->product_name }}</p>
                             <p>Category: {{ $child->category_name }}</p>
@@ -53,6 +57,7 @@
                                         
                                         <div class="absolute left-1/2 transform -translate-x-1/2 mt-20 hidden grandchild-tooltip bg-white shadow-xl p-4 rounded-lg text-xs text-gray-800 w-48">
                                             <p><strong>{{ $grandchild->full_name }}</strong></p> <!-- Full Name -->
+                                            <p>Username: {{ $grandchild->username }}</p>
                                             <p>Status: {{ $grandchild->status }}</p>
                                             <p>Product: {{ $grandchild->product_name }}</p>
                                             <p>Category: {{ $grandchild->category_name }}</p>
@@ -67,9 +72,9 @@
             </div>
         @endforeach
     </div>
+
+    <p class="font-bold text-xl text-slate-400 mt-18 text-center">To see the children of an user jus click on its icon</p>
 </div>
-
-
 
 <style>
     .parent-circle:hover .parent-tooltip,
