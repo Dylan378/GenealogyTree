@@ -73,7 +73,7 @@
         @endforeach
     </div>
 
-    <p class="font-bold text-xl text-slate-400 mt-18 text-center">To see the children of an user jus click on its icon</p>
+    <p class="font-bold text-xl text-slate-400 mt-18 text-center">To see the children of an user just click on it's icon</p>
 </div>
 
 <style>
