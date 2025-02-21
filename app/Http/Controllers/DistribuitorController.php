@@ -7,16 +7,11 @@ use Illuminate\Http\Request;
 
 class DistribuitorController extends Controller
 {
-    public function index($parentId = null)
+    public function show(Request $request)
     {
-        if ($parentId) {
-            $parentDistributor = Distributor::with('children')->findOrFail($parentId);
-        } else {
-            $parentDistributor = Distributor::with('children')->whereNull('distributor_id')->first();  // Root distributor
-        }
+        $parent = Distributor::with('children.children')
+            ->find($request->get('parent_id', Distributor::first()->id));
 
-        return view('genealogy', [
-            'treeData' => $parentDistributor->toJson(),
-        ]);
+        return view('genealogy', compact('parent'));
     }
 }
